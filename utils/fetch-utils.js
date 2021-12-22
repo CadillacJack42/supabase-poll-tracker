@@ -18,3 +18,18 @@ export const signIn = async(email, password) => {
     });
     return res.data;
 };
+
+export const savePoll = async(question, option1, option1VoteCount, option2, option2VoteCount) => {
+    const res = await client
+        .from('polls')
+        .insert([
+            { 
+                question,
+                option_one: option1,
+                option_two: option2,
+                one_count: option1VoteCount,
+                two_count: option2VoteCount
+            }
+        ]);
+    return res.data;
+};
