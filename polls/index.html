@@ -20,6 +20,7 @@
         </div>
     </header>
     <main>
+        <button id="logout-btn">Logout</button>
         <div id="current-poll">
             <div id="current-display">
                 
@@ -40,9 +41,9 @@
                     <button>Submit</button>
                 </form>
                 <div id="rendered-poll">
-                    <p id="current-question" class="poll-ps">I'm a question</p>
-                    <p id="first-option" class="poll-ps">I'm the first option</p>
-                    <p id="second-option" class="poll-ps">I'm the second option</p>
+                    <p id="current-question" class="poll-ps">Your Poll question will appear here</p>
+                    <p id="first-option" class="poll-ps">Your first option will appear here</p>
+                    <p id="second-option" class="poll-ps">Your second option will appear here</p>
                     <span id="first-count">0</span><br>
                     <button id="first-option-btn-plus" class="first-option-btns">Add Vote</button>
                     <button id="first-option-btn-minus" class="first-option-btns">Subtract Vote</button>
@@ -55,8 +56,11 @@
         </div>
         <div id="past-polls">
             <h2 id="previous-head">Previous Polls</h2>
+            <div id="past-polls-container">
 
+            </div>
         </div>
+
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>

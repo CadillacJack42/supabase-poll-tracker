@@ -1,3 +1,4 @@
+
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDAxOTY4MywiZXhwIjoxOTU1NTk1NjgzfQ.0WT-gqj-qvV0wYfg0QdblxbkS4J4rIq0wf8BI3R45yc';
 const SUPABASE_URL = 'https://cmewyjgphfnmytfmmpjy.supabase.co';
 
@@ -47,4 +48,19 @@ export const getUserId = async() => {
     const user = client.auth.user();
 
     return user.id;
+};
+
+export const logOutUser = async() => {
+    const res = await client.auth.signOut();
+
+    location.href = '../';
+
+    return res;
+};
+
+export const checkUser = async() => {
+    const user = client.auth.user();
+    if (!user) {
+        location.href = '../';
+    }
 };

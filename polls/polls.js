@@ -1,10 +1,7 @@
-import { getPolls, getUserId, savePoll } from '../utils/fetch-utils.js';
-import { renderPastPolls } from '../utils/render-utils.js';
+import { checkUser, getPolls, getUserId, logOutUser, savePoll } from '../utils/fetch-utils.js';
+import { displayCurrentPoll, renderPastPolls } from '../utils/render-utils.js';
 
 const newPoll = document.getElementById('new-poll');
-const pollQuestionEl = document.getElementById('current-question');
-const firstOptionEl = document.getElementById('first-option');
-const secondOptionEl = document.getElementById('second-option');
 
 const option1Votes = document.getElementById('first-count');
 const option2Votes = document.getElementById('second-count');
@@ -17,6 +14,8 @@ const downVote2 = document.getElementById('second-option-btn-minus');
 
 const closePoll = document.getElementById('submit-poll');
 
+const logOut = document.getElementById('logout-btn');
+
 let questionState = '';
 let option1Title = '';
 let option1VoteCount = 0;
@@ -24,9 +23,14 @@ let option2Title = '';
 let option2VoteCount = 0;
 
 window.addEventListener('load', async() => {
+    checkUser();
     const user = await getUserId();
     const closedPolls = await getPolls(user);
     renderPastPolls(closedPolls);
+});
+
+logOut.addEventListener('click', async() => {
+    await logOutUser();
 });
 
 newPoll.addEventListener('submit', (e) => {
@@ -42,12 +46,15 @@ newPoll.addEventListener('submit', (e) => {
     const option2 = poll.get('option-two');
     option2Title = option2;
 
-    pollQuestionEl.textContent = question;
-    firstOptionEl.textContent = option1;
-    secondOptionEl.textContent = option2;
+    const currentPoll = {
+        questionState,
+        option1Title,
+        option1VoteCount,
+        option2Title,
+        option2VoteCount
+    };
 
-    option1Votes.textContent = option1VoteCount;
-    option2Votes.textContent = option2VoteCount;
+    displayCurrentPoll(currentPoll);
 
     newPoll.reset();
 });
@@ -55,20 +62,52 @@ newPoll.addEventListener('submit', (e) => {
 
 upVote1.addEventListener('click', () => {
     option1VoteCount++;
-    option1Votes.textContent = option1VoteCount;
+    const currentPoll = {
+        questionState,
+        option1Title,
+        option1VoteCount,
+        option2Title,
+        option2VoteCount
+    };
+
+    displayCurrentPoll(currentPoll);
 });
 downVote1.addEventListener('click', () => {
     option1VoteCount--;
-    option1Votes.textContent = option1VoteCount;
+    const currentPoll = {
+        questionState,
+        option1Title,
+        option1VoteCount,
+        option2Title,
+        option2VoteCount
+    };
+
+    displayCurrentPoll(currentPoll);
 });
 
 upVote2.addEventListener('click', () => {
     option2VoteCount++;
-    option2Votes.textContent = option2VoteCount;
+    const currentPoll = {
+        questionState,
+        option1Title,
+        option1VoteCount,
+        option2Title,
+        option2VoteCount
+    };
+
+    displayCurrentPoll(currentPoll);
 });
 downVote2.addEventListener('click', () => {
     option2VoteCount--;
-    option2Votes.textContent = option2VoteCount;
+    const currentPoll = {
+        questionState,
+        option1Title,
+        option1VoteCount,
+        option2Title,
+        option2VoteCount
+    };
+
+    displayCurrentPoll(currentPoll);
 });
 
 closePoll.addEventListener('click', async() => {
@@ -76,6 +115,17 @@ closePoll.addEventListener('click', async() => {
 
     const user = await getUserId();
     const closedPolls = await getPolls(user);
+    renderPastPolls(closedPolls);
+
+    const currentPoll = {
+        questionState: 'Create new poll',
+        option1Title: 'Create new options',
+        option1VoteCount: 0,
+        option2Title: 'Create new options',
+        option2VoteCount: 0
+    };
+
+    displayCurrentPoll(currentPoll);
     console.log(closedPolls);
 
 });

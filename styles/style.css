@@ -6,7 +6,7 @@ body {
     --color2: rgb(104, 246, 249);
     --color3: white;
     --color4: white;
-    --color5: white;
+    --color5: rgb(76, 143, 194);
     
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
         
@@ -108,6 +108,8 @@ footer {
 
 #past-polls {
     grid-column: 2;
+    height: 100vh;
+    overflow: scroll;
 }
 
 .poll-ps {
@@ -152,9 +154,20 @@ button {
 #previous-head {
     position: absolute;
     top: 80px;
-    margin: 0 0 0 15%;
+    margin: 0 0 100px 15%;
 }
 
 #submit-poll {
     grid-column: 2 / 4;
+}
+
+.single-poll {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color5);
+    margin: 5px;
+}
+
+#past-polls-container {
+    margin: 50px auto;
 }
