@@ -13,12 +13,9 @@ signUpForm.addEventListener('submit', async(e) => {
     const userEmail = poll.get('email');
     const userPassword = poll.get('password');
 
-    // signup function
-    let user = await signUp(userEmail, userPassword);
+    await signUp(userEmail, userPassword);
 
-    console.log(user);
-
-    // location.href = '../signin';
+    location.href = '../signin';
 
 });
 
