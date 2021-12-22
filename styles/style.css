@@ -147,3 +147,9 @@ footer {
 button {
     cursor: pointer;
 }
+
+#previous-head {
+    position: absolute;
+    top: 80px;
+    margin: 0 0 0 15%;
+}
