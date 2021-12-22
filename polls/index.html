@@ -19,7 +19,41 @@
         </div>
     </header>
     <main>
-        <h3>I'm a Polls page</h3>
+        <div id="current-poll">
+            <div id="current-display">
+                
+                <h2>Enter a new Question with two options to choose between</h2>
+                <form id="new-poll">
+                    <label>
+                        Question
+                        <input type="text" name="question" id="poll-question">
+                    </label>
+                    <label>
+                        Option 1
+                        <input type="text" name="option-one" id="option-one">
+                    </label>
+                    <label>
+                        Option 2
+                        <input type="text" name="option-two" id="option-two">
+                    </label>
+                    <button>Submit</button>
+                </form>
+                <div id="rendered-poll">
+                    <p id="current-question" class="poll-ps">I'm a question</p>
+                    <p id="first-option" class="poll-ps">I'm the first option</p>
+                    <p id="second-option" class="poll-ps">I'm the second option</p>
+                    <span id="first-count">0</span><br>
+                    <button id="first-option-btn-plus" class="first-option-btns">+</button>
+                    <button id="first-option-btn-minus" class="first-option-btns">-</button>
+                    <span id="second-count">0</span><br>
+                    <button id="second-option-btn-plus" class="second-option-btns">+</button>
+                    <button id="second-option-btn-minus" class="second-option-btns">-</button>
+                </div>
+            </div>
+        </div>
+        <div id="past-polls">
+
+        </div>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
