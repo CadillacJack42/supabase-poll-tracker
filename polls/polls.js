@@ -3,9 +3,6 @@ import { displayCurrentPoll, renderPastPolls } from '../utils/render-utils.js';
 
 const newPoll = document.getElementById('new-poll');
 
-const option1Votes = document.getElementById('first-count');
-const option2Votes = document.getElementById('second-count');
-
 const upVote1 = document.getElementById('first-option-btn-plus');
 const downVote1 = document.getElementById('first-option-btn-minus');
 
@@ -126,12 +123,5 @@ closePoll.addEventListener('click', async() => {
     };
 
     displayCurrentPoll(currentPoll);
-    console.log(closedPolls);
 
 });
-
-
-
-
-
-console.log("I'm a console log on the Polls page");

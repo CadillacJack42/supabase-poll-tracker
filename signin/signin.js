@@ -14,10 +14,3 @@ signInForm.addEventListener('submit', async(e) => {
 
     location.href = '../polls';
 });
-
-
-
-
-
-
-console.log("I'm a console log on the sign in page");
