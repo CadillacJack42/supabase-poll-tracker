@@ -94,6 +94,7 @@ footer {
     align-items: center;
     text-align: center;
     border-right: 1px solid black;
+    height: 100vh;
 }
 
 #new-poll {
@@ -142,4 +143,7 @@ footer {
 .second-option-btns {
     grid-row: 4;
     grid-template-columns: 3 / 5;
+}
+button {
+    cursor: pointer;
 }
