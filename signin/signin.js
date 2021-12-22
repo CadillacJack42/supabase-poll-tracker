@@ -1,6 +1,5 @@
 import { signIn } from '../utils/fetch-utils.js';
 
-
 const signInForm = document.getElementById('sign-in');
 
 signInForm.addEventListener('submit', async(e) => {
