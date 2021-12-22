@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+    </header>
+    <main>
+        <button id="logout-btn">Logout</button>
+        <div id="current-poll">
+            <div id="current-display">
+                
+                <h2>Enter a new Question with two options to choose between</h2>
+                <form id="new-poll">
+                    <label>
+                        Question
+                        <input type="text" name="question" id="poll-question">
+                    </label>
+                    <label>
+                        Option 1
+                        <input type="text" name="option-one" id="option-one">
+                    </label>
+                    <label>
+                        Option 2
+                        <input type="text" name="option-two" id="option-two">
+                    </label>
+                    <button>Submit</button>
+                </form>
+                <div id="rendered-poll">
+                    <p id="current-question" class="poll-ps">Your Poll question will appear here</p>
+                    <p id="first-option" class="poll-ps">Your first option will appear here</p>
+                    <p id="second-option" class="poll-ps">Your second option will appear here</p>
+                    <span id="first-count">0</span><br>
+                    <button id="first-option-btn-plus" class="first-option-btns">Add Vote</button>
+                    <button id="first-option-btn-minus" class="first-option-btns">Subtract Vote</button>
+                    <span id="second-count">0</span><br>
+                    <button id="second-option-btn-plus" class="second-option-btns">Add Vote</button>
+                    <button id="second-option-btn-minus" class="second-option-btns">Subtract Vote</button>
+                    <button id="submit-poll">Close Poll</button>
+                </div>
+            </div>
+        </div>
+        <div id="past-polls">
+            <h2 id="previous-head">Previous Polls</h2>
+            <div id="past-polls-container">
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+
+    <script type="module" src="./polls.js"></script>
+</body>
+
+</html>
