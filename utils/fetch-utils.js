@@ -33,3 +33,18 @@ export const savePoll = async(question, option1, option1VoteCount, option2, opti
         ]);
     return res.data;
 };
+
+export const getPolls = async(id) => {
+    const res = await client
+        .from('polls')
+        .select()
+        .match({ user_id: id });
+
+    return res.data;    
+};
+
+export const getUserId = async() => {
+    const user = client.auth.user();
+
+    return user.id;
+};

@@ -1,4 +1,5 @@
-import { savePoll } from '../utils/fetch-utils.js';
+import { getPolls, getUserId, savePoll } from '../utils/fetch-utils.js';
+import { renderPastPolls } from '../utils/render-utils.js';
 
 const newPoll = document.getElementById('new-poll');
 const pollQuestionEl = document.getElementById('current-question');
@@ -21,6 +22,12 @@ let option1Title = '';
 let option1VoteCount = 0;
 let option2Title = '';
 let option2VoteCount = 0;
+
+window.addEventListener('load', async() => {
+    const user = await getUserId();
+    const closedPolls = await getPolls(user);
+    renderPastPolls(closedPolls);
+});
 
 newPoll.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -66,6 +73,11 @@ downVote2.addEventListener('click', () => {
 
 closePoll.addEventListener('click', async() => {
     await savePoll(questionState, option1Title, option1VoteCount, option2Title, option2VoteCount);
+
+    const user = await getUserId();
+    const closedPolls = await getPolls(user);
+    console.log(closedPolls);
+
 });
 
 
