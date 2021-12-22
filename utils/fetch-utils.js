@@ -10,3 +10,11 @@ export const signUp = async(email, password) => {
     });
     return res.user;
 };
+
+export const signIn = async(email, password) => {
+    const res = await client.auth.signIn({
+        email,
+        password,
+    });
+    return res.data;
+};

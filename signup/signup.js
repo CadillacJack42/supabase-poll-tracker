@@ -1,17 +1,14 @@
 import { signUp } from '../utils/fetch-utils.js';
 
-
-
-
 const signUpForm = document.getElementById('sign-up');
 
 signUpForm.addEventListener('submit', async(e) => {
     e.preventDefault();
 
-    const poll = new FormData(signUpForm);
+    const user = new FormData(signUpForm);
 
-    const userEmail = poll.get('email');
-    const userPassword = poll.get('password');
+    const userEmail = user.get('email');
+    const userPassword = user.get('password');
 
     await signUp(userEmail, userPassword);
 
